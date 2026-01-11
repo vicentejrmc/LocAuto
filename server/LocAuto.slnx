@@ -1,9 +1,16 @@
 <Solution>
   <Folder Name="/server/" />
-  <Folder Name="/server/Apresentacao/">
+  <Folder Name="/server/1.Apresentacao/">
     <Project Path="LocAuto.WebApp/LocAuto.WebApp.csproj" Id="3a396033-7d65-4f0b-ada2-c281b2f4fcc1" />
   </Folder>
-  <Folder Name="/server/Dominio/">
+  <Folder Name="/server/2.Núcleo/">
+    <Project Path="LocAuto.Aplicacao/LocAuto.Aplicacao.csproj" Id="1a6a4edb-38dc-4a41-b516-9c9a785beaa9" />
     <Project Path="LocAuto.Dominio/LocAuto.Dominio.csproj" Id="13093232-93c6-441c-bb5e-333c76c9525f" />
+  </Folder>
+  <Folder Name="/server/3.Infraestrutura/">
+    <Project Path="LocAuto.Infraestrutura/LocAuto.Infraestrutura.csproj" Id="cf612b3c-d4e1-4dd5-a891-f88a3158bf02" />
+  </Folder>
+  <Folder Name="/server/4.Testes/">
+    <Project Path="LocAuto.Testes/LocAuto.Testes.csproj" Id="cf4e53c8-d5ca-475e-a4c2-dd63f7d6b13b" />
   </Folder>
 </Solution>
