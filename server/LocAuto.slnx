@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/server/" />
+  <Folder Name="/server/Apresentacao/">
+    <Project Path="LocAuto.WebApp/LocAuto.WebApp.csproj" Id="3a396033-7d65-4f0b-ada2-c281b2f4fcc1" />
+  </Folder>
+  <Folder Name="/server/Dominio/">
+    <Project Path="LocAuto.Dominio/LocAuto.Dominio.csproj" Id="13093232-93c6-441c-bb5e-333c76c9525f" />
+  </Folder>
+</Solution>
