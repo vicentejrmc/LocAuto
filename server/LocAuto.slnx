@@ -3,8 +3,11 @@
   <Folder Name="/server/1.Apresentacao/">
     <Project Path="LocAuto.WebApp/LocAuto.WebApp.csproj" Id="3a396033-7d65-4f0b-ada2-c281b2f4fcc1" />
   </Folder>
-  <Folder Name="/server/2.Núcleo/">
+  <Folder Name="/server/2.Núcleo/" />
+  <Folder Name="/server/2.Núcleo/Aplicacao/">
     <Project Path="LocAuto.Aplicacao/LocAuto.Aplicacao.csproj" Id="1a6a4edb-38dc-4a41-b516-9c9a785beaa9" />
+  </Folder>
+  <Folder Name="/server/2.Núcleo/Dominio/">
     <Project Path="LocAuto.Dominio/LocAuto.Dominio.csproj" Id="13093232-93c6-441c-bb5e-333c76c9525f" />
   </Folder>
   <Folder Name="/server/3.Infraestrutura/">
