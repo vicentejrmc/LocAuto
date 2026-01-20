@@ -3,9 +3,9 @@
 public interface IRepositorio<T> where T : EntidadeBase<T>
 {
     // crud - create, read, update, delete
-    public void Inserir(T novoRegistro);
+    public T Inserir(T novoRegistro);
     public List<T> SelecionarTodos();
-    public T SelecionarPorId(Guid id);
-    public void Editar(Guid id, T registroAtualizado);
-    public void Excluir(Guid id);
+    public T? SelecionarPorId(Guid id);
+    public bool Editar(Guid id, T registroEditado);
+    public bool Excluir(Guid id);
 }

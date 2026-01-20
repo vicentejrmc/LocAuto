@@ -2,4 +2,8 @@
 
 namespace LocAuto.Dominio.ModuloAutenticacao.Funcionario;
 
-public interface IRepositorioFuncionario : IRepositorio<Funcionario>;
+public interface IRepositorioFuncionario : IRepositorio<Funcionario> 
+{
+    Funcionario SelecionarPorEmail(string email);
+    List<Funcionario> ListarPorEmpresa(Guid empresaId);
+}
