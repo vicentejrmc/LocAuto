@@ -17,15 +17,29 @@ public class LocAutoDbContext : IdentityDbContext<ApplicationUser>
         _tenantId = tenantProvider.CurrentTenantId;
     }
 
-    public DbSet<Empresa> Empresas { get; set; }
+    public DbSet<Empresa> Empresas { get; set; } 
     public DbSet<Funcionario> Funcionarios { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
+        builder.Entity<ApplicationUser>(b =>
+        {
+            b.HasOne(e => e.Empresa)
+            .WithMany()
+            .HasForeignKey(e => e.EmpresatId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+            b.HasOne(f => f.Funcionario)
+            .WithOne()
+            .HasForeignKey<ApplicationUser>(f => f.FuncionarioId)
+            .OnDelete(DeleteBehavior.Restrict);
+        });
+
         builder.Entity<Funcionario>()
             .HasQueryFilter(f => f.TenantId == _tenantId);
+
     }
 }
 
