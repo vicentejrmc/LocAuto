@@ -38,7 +38,7 @@ public class LocAutoDbContext : IdentityDbContext<ApplicationUser>
         });
 
         builder.Entity<Funcionario>()
-            .HasQueryFilter(f => f.TenantId == _tenantId);
+            .HasQueryFilter(f => f.EmpresaId == _tenantId);
 
     }
 }
