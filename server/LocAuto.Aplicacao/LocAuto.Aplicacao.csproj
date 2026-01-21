@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloAutenticacao\Handlers\Funcionario\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LocAuto.Dominio\LocAuto.Dominio.csproj" />
   </ItemGroup>
 

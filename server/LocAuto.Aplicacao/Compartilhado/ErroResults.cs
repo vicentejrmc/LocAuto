@@ -6,7 +6,7 @@ public static class ErroResults
       $"Registro duplicado: {mensagem}";
 
     public static string RegistroNaoEncontrado(Guid id) =>
-        $"Registro com ID {id} não encontrado.";
+        $"Registro com ID {id} não foi encontrado.";
 
     public static string ExclusaoBloqueada(string mensagem) =>
         $"Exclusão bloqueada: {mensagem}";
