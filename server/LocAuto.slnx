@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/server/" />
   <Folder Name="/server/1.Apresentacao/">
-    <Project Path="LocAuto.WebApp/LocAuto.WebApp.csproj" Id="3a396033-7d65-4f0b-ada2-c281b2f4fcc1" />
+    <Project Path="LocAuto.WebApp/LocAuto.WebApp.csproj" Id="ac3f52c2-1f7b-4c1f-adf2-f1bbb2bd91fe" />
   </Folder>
   <Folder Name="/server/2.Núcleo/" />
   <Folder Name="/server/2.Núcleo/Aplicacao/">
