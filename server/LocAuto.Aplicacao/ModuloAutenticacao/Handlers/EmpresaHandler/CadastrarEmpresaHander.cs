@@ -11,11 +11,13 @@ public class CadastrarEmpresaHander
 {
     private readonly IRepositorioEmpresa _repositorioEmpresa;
     private readonly IPasswordHasher _passwordHasher;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public CadastrarEmpresaHander(IRepositorioEmpresa repositorioEmpresa, IPasswordHasher passwordHasher)
+    public CadastrarEmpresaHander(IRepositorioEmpresa repositorioEmpresa, IPasswordHasher passwordHasher, IUnitOfWork unitOfWork)
     {
         _repositorioEmpresa = repositorioEmpresa;
         _passwordHasher = passwordHasher;
+        _unitOfWork = unitOfWork;
     }
 
     public Results<Empresa> ExecutarCadastro(CadastrarEmpresaComand command)
@@ -32,16 +34,20 @@ public class CadastrarEmpresaHander
 
             var novaEmpresa = new Empresa(command.Nome, command.Cnpj, command.Email, senhaHash);
 
+            _unitOfWork.Commit();
+
             var empresaCriada = _repositorioEmpresa.Inserir(novaEmpresa);
 
             return Results<Empresa>.Ok(empresaCriada, "Empresa cadastrada com sucesso.");
         }
         catch(ArgumentException ex)
         {
+            _unitOfWork.Rollback();
             return Results<Empresa>.Fail(ErroResults.RequisicaoInvalida(ex.Message));
         }
         catch (Exception ex)
         {
+            _unitOfWork.Rollback();
             return Results<Empresa>.Fail(ErroResults.ErroInterno($"Ocorreu um erro ao cadastrar a empresa: {ex.Message}"));
         }
     }

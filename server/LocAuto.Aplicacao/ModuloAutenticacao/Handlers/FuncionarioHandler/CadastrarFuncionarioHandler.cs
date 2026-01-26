@@ -11,15 +11,19 @@ public class CadastrarFuncionarioHandler
     private readonly IRepositorioFuncionario _repositorioFuncionario;
     private readonly IRepositorioEmpresa _repositorioEmpresa;
     private readonly IPasswordHasher _passwordHasher;
+    private readonly IUnitOfWork _unitOfWork;
 
     public CadastrarFuncionarioHandler(
         IRepositorioFuncionario repositorioFuncionario,
         IRepositorioEmpresa repositorioEmpresa,
-        IPasswordHasher passwordHasher)
+        IPasswordHasher passwordHasher,
+        IUnitOfWork unitOfWork
+        )
     {
         _repositorioFuncionario = repositorioFuncionario;
         _repositorioEmpresa = repositorioEmpresa;
         _passwordHasher = passwordHasher;
+        _unitOfWork = unitOfWork;
     }
 
     public Results<Funcionario> ExecultarCadastro(CadastrarFuncionarioComand command)
@@ -46,14 +50,18 @@ public class CadastrarFuncionarioHandler
 
             var funcionaarioCadastrado = _repositorioFuncionario.Inserir(novoFuncionario);
 
+            _unitOfWork.Commit();
+
             return Results<Funcionario>.Ok(funcionaarioCadastrado, "Funcionário cadastrado com sucesso.");
         }
         catch(ArgumentException ex)
         {
+            _unitOfWork.Rollback();
             return Results<Funcionario>.Fail(ErroResults.RequisicaoInvalida(ex.Message));
         }
         catch (Exception ex)
         {
+            _unitOfWork.Rollback();
             return Results<Funcionario>.Fail(ErroResults.ErroInterno($"Ocorreu um erro ao cadastrar o funcionário. Detalhes: {ex.Message}"));
         }
     }

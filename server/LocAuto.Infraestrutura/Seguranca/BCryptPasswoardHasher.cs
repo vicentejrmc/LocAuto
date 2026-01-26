@@ -1,7 +1,7 @@
 ﻿using BCrypt.Net;
 using LocAuto.Dominio.Compartilhado;
 
-namespace LocAuto.Infraestrutura.Serguranca;
+namespace LocAuto.Infraestrutura.Seguranca;
 
 public class BCryptPasswoardHasher : IPasswordHasher
 {
